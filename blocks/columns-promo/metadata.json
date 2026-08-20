@@ -1,0 +1,37 @@
+{
+  "variantName": "columns-promo",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-20T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.coolsculpting.com/",
+    "originPage": "CoolSculpting homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "cta",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "alternating image | content (heading + text + CTA + disclaimer) rows",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "dark 'Get Started' promo panels with alternating image/content sides",
+      "conversion-focused image+text CTA blocks on a black background"
+    ],
+    "notSuitableFor": [
+      "light text+link teaser layouts (use columns-links)",
+      "uniform small-item card grids (use cards)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-20T00:00:00.000Z"
+  }
+}

@@ -1,0 +1,105 @@
+/* Block: accordion-isi — Important Safety Information (ISI)
+ * Values extracted from source computed styles (.aaaem-isi-container):
+ *   font: 12px / 18px, Graphik; color #000; background #fff (source used a
+ *   translucent white overlay rgba(255,255,255,.8) as a fixed banner);
+ *   banner padding 16px 20px 22px; side gutters 36px; bold uppercase title
+ *   with a "+" toggle at the right that collapses to "−" when expanded.
+ * DO NOT replace these values with generic defaults.
+ */
+
+/* Full-width band (source banner spans edge to edge). */
+.accordion-isi-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.accordion-isi.block {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 16px 20px 22px;
+  border-top: 1px solid var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@media (width >= 900px) {
+  .accordion-isi.block {
+    padding: 16px 36px 22px;
+  }
+}
+
+.accordion-isi .accordion-isi-item {
+  border: 0;
+}
+
+/* Title bar (summary) */
+.accordion-isi summary.accordion-isi-item-label {
+  position: relative;
+  padding-right: 28px;
+  list-style: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.accordion-isi summary.accordion-isi-item-label::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-isi summary.accordion-isi-item-label p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+}
+
+/* Plus / minus toggle drawn from the text color */
+.accordion-isi summary.accordion-isi-item-label::before,
+.accordion-isi summary.accordion-isi-item-label::after {
+  content: '';
+  position: absolute;
+  background-color: var(--text-color);
+}
+
+/* horizontal bar (always visible) */
+.accordion-isi summary.accordion-isi-item-label::after {
+  top: 8px;
+  right: 0;
+  width: 14px;
+  height: 2px;
+}
+
+/* vertical bar (hidden when open → becomes a minus) */
+.accordion-isi summary.accordion-isi-item-label::before {
+  top: 2px;
+  right: 6px;
+  width: 2px;
+  height: 14px;
+  transition: opacity 0.2s;
+}
+
+.accordion-isi details[open] summary.accordion-isi-item-label::before {
+  opacity: 0;
+}
+
+/* Expandable body — condensed safety copy, small legal type */
+.accordion-isi .accordion-isi-item-body {
+  padding-top: 12px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.accordion-isi .accordion-isi-item-body p {
+  margin: 0 0 12px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.accordion-isi .accordion-isi-item-body p:last-child {
+  margin-bottom: 0;
+}
+
+.accordion-isi a:any-link {
+  text-decoration: underline;
+}

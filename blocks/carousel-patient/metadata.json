@@ -1,0 +1,37 @@
+{
+  "variantName": "carousel-patient",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-08-20T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.coolsculpting.com/",
+    "originPage": "CoolSculpting homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "testimonial",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "before-after image + name/age title + CTA + disclaimer per slide",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "patient before/after transformation galleries",
+      "rotating testimonial cards with rounded photos and per-slide CTAs"
+    ],
+    "notSuitableFor": [
+      "brand-benefit feature slides on colored backgrounds (use carousel-feature)",
+      "single non-rotating content"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-20T00:00:00.000Z"
+  }
+}

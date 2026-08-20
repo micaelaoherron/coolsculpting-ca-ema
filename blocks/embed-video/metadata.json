@@ -1,0 +1,37 @@
+{
+  "variantName": "embed-video",
+  "baseBlock": "embed",
+  "version": "1.0.0",
+  "created": "2026-08-20T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.coolsculpting.com/",
+    "originPage": "CoolSculpting homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "compact",
+    "purpose": "video",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "external video URL (Vimeo) with optional poster image",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "embedding an external Vimeo/YouTube video on a page",
+      "video modal / branded video content"
+    ],
+    "notSuitableFor": [
+      "self-hosted video files (use video block)",
+      "social post embeds only"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-20T00:00:00.000Z"
+  }
+}
