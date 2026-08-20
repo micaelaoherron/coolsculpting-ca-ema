@@ -10,6 +10,8 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  readBlockConfig,
+  toClassName,
 } from './aem.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -143,6 +145,28 @@ function decorateButtons(main) {
 }
 
 /**
+ * Applies `.section-metadata` blocks to their parent section as classes/styles.
+ * The vendored aem.js `decorateSections` does not process section metadata, so
+ * without this the metadata renders as visible "style / pink" text and EDS tries
+ * to load a non-existent `section-metadata` block. Run before decorateSections.
+ * @param {Element} main The container element
+ */
+function processSectionMetadata(main) {
+  main.querySelectorAll(':scope > div > div.section-metadata').forEach((metaBlock) => {
+    const section = metaBlock.parentElement;
+    const meta = readBlockConfig(metaBlock);
+    Object.keys(meta).forEach((key) => {
+      if (key === 'style') {
+        meta.style.split(',').forEach((s) => section.classList.add(toClassName(s.trim())));
+      } else {
+        section.dataset[toClassName(key)] = meta[key];
+      }
+    });
+    metaBlock.remove();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -150,6 +174,7 @@ function decorateButtons(main) {
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
+  processSectionMetadata(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);

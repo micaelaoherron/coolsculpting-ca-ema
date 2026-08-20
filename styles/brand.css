@@ -1,0 +1,39 @@
+/*
+ * brand.css — design tokens extracted from https://www.coolsculpting.com/
+ *
+ * Fonts: the source uses the proprietary typefaces "MaisonNeue" (headings)
+ * and "Graphik" (body). Neither is available via Adobe Fonts, Google Fonts,
+ * nor the shared fallback kit, so we render with a close neo-grotesque system
+ * stack. Drop the licensed webfont @font-face rules into styles/fonts.css to
+ * upgrade — the family names below (--heading-font-family / --body-font-family)
+ * already list them first.
+ */
+
+:root {
+  /* fonts */
+  --heading-font-family: "MaisonNeue", "Helvetica Neue", helvetica, arial, sans-serif;
+  --body-font-family: "Graphik", "Helvetica Neue", helvetica, arial, sans-serif;
+
+  /* colors */
+  --background-color: #fff;
+  --text-color: #000;
+  --link-color: #000;
+  --link-hover-color: #333;
+
+  /* section background variants (sampled from source) */
+  --section-pink: #f9e9e6;
+  --section-blue: #e6eef5;
+  --section-black: #000;
+
+  /* spacing */
+  --content-max-width: 1600px;
+  --nav-height: 80px;
+
+  /* heading sizes (desktop) */
+  --heading-size-xxl: 64px;
+  --heading-size-xl: 40px;
+  --heading-size-l: 24px;
+  --heading-size-m: 24px;
+  --heading-size-s: 24px;
+  --heading-size-xs: 16px;
+}

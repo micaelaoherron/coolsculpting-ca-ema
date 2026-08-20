@@ -1,0 +1,109 @@
+/* Block: embed-video — inline responsive video embed
+ * Source: coolsculpting.com video modal ("Own it. Sculpt it.").
+ * Reworked from the branded modal overlay into a clean inline embed:
+ * heading + description stacked above a responsive 16:9 player.
+ */
+
+.embed-video {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Text block (heading + description) authored in the first cell */
+.embed-video > div {
+  margin-bottom: 24px;
+}
+
+.embed-video h1,
+.embed-video h2,
+.embed-video h3,
+.embed-video h4,
+.embed-video h5,
+.embed-video h6 {
+  margin: 0 0 8px;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.45;
+  letter-spacing: normal;
+  color: var(--text-color);
+}
+
+.embed-video p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--text-color);
+}
+
+/* Responsive media wrapper */
+.embed-video-media {
+  position: relative;
+  width: 100%;
+}
+
+/* 16:9 responsive frame (iframe fills it) */
+.embed-video-frame,
+.embed-video-placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.embed-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Poster (only when a placeholder image is authored) */
+.embed-video-placeholder {
+  cursor: pointer;
+}
+
+.embed-video-placeholder picture,
+.embed-video-placeholder img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.embed-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(0 0 0 / 55%);
+  cursor: pointer;
+}
+
+.embed-video-play::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 12px 0 12px 20px;
+  border-color: transparent transparent transparent #fff;
+}
+
+@media (width >= 900px) {
+  .embed-video > div {
+    margin-bottom: 32px;
+  }
+}

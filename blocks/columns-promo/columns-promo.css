@@ -1,0 +1,141 @@
+/* Block: columns-promo — dark "Get Started" promo panels with alternating image/content sides.
+   Values extracted from source computed styles (coolsculpting.com .pre-footer). */
+
+.columns-promo {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Each row = one promo panel (image cell + content cell) */
+.columns-promo > div {
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+}
+
+/* stack: image on top, content below (mobile) */
+.columns-promo > div > div {
+  order: 1;
+}
+
+.columns-promo > div > .columns-promo-img-col {
+  order: 0;
+}
+
+/* Image cell — full-bleed asset */
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-promo-img-col {
+  display: flex;
+}
+
+.columns-promo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content cell */
+.columns-promo > div > div:not(.columns-promo-img-col) {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px 40px;
+}
+
+.columns-promo h3 {
+  margin: 0 0 0.25em;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.9px;
+  font-size: 36px;
+}
+
+.columns-promo p {
+  margin: 0.8em 0 0;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.columns-promo h3 + p {
+  margin-top: 16px;
+}
+
+/* CTA link styled as source button (dark, white-outlined) */
+.columns-promo-cta {
+  margin-top: 24px;
+}
+
+.columns-promo-cta a,
+.columns-promo-cta a.button:any-link {
+  display: inline-block;
+  margin: 0;
+  padding: 13px 12px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  background-color: #000;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-decoration: none;
+  min-width: 200px;
+  text-align: center;
+}
+
+.columns-promo-cta a:hover,
+.columns-promo-cta a.button:any-link:hover {
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+}
+
+/* Fine-print disclaimers */
+.columns-promo-disclaimer {
+  margin-top: 16px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* Allē logo — small brand mark, pushed toward the bottom of the panel */
+.columns-promo-logo {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.columns-promo-logo img,
+.columns-promo-logo picture {
+  width: auto;
+  max-width: 110px;
+  height: auto;
+}
+
+@media (width >= 900px) {
+  .columns-promo > div {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .columns-promo > div > div {
+    flex: 1 1 50%;
+    order: unset;
+    min-width: 0;
+  }
+
+  .columns-promo > div > .columns-promo-img-col {
+    order: unset;
+  }
+
+  .columns-promo > div > div:not(.columns-promo-img-col) {
+    padding: 49px 56px 56px;
+  }
+
+  .columns-promo h3 {
+    font-size: 48px;
+    line-height: 1.05;
+  }
+}

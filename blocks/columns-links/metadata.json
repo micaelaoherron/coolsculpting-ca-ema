@@ -1,0 +1,37 @@
+{
+  "variantName": "columns-links",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-20T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.coolsculpting.com/",
+    "originPage": "CoolSculpting homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "text column (heading + link list) | image teaser column with overlay CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "two-column layouts pairing a text/link list with an image teaser",
+      "treatment-area navigation next to a promotional teaser"
+    ],
+    "notSuitableFor": [
+      "dark promo panels with alternating image sides (use columns-promo)",
+      "uniform repeating small-item card grids (use cards)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-20T00:00:00.000Z"
+  }
+}

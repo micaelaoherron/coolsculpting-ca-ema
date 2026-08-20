@@ -1,0 +1,38 @@
+{
+  "variantName": "hero-overlay",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-08-20T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.coolsculpting.com/",
+    "originPage": "CoolSculpting homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "background image + heading + subheading + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "full-bleed hero banners with a background photo",
+      "landing page intros with text overlaid on an image",
+      "pages needing a high-impact top-of-page CTA"
+    ],
+    "notSuitableFor": [
+      "text-only intros with no background image",
+      "mid-page informational sections"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-20T00:00:00.000Z"
+  }
+}

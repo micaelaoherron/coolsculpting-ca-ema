@@ -1,0 +1,209 @@
+/* hero-overlay — full-bleed hero with overlaid content + bottom disclaimer bar.
+   Values extracted from source .emu-teaser.home__hero-teaser (getComputedStyle). */
+
+.hero-overlay {
+  --hero-overlay-cta-bg: rgb(21 99 255);
+  --hero-overlay-pad-x: 16px;
+  --hero-overlay-pad-t: 24px;
+  --hero-overlay-pad-b: 24px;
+
+  position: relative;
+  min-height: 600px;
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+/* full-bleed: cancel the section wrapper's max-width / padding + margins */
+main .section:has(.hero-overlay) {
+  margin: 0;
+}
+
+main .section > .hero-overlay-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+/* --- background image layer (row 1) --- */
+.hero-overlay .hero-overlay-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero-overlay .hero-overlay-bg > div,
+.hero-overlay .hero-overlay-bg picture {
+  display: block;
+  height: 100%;
+}
+
+.hero-overlay .hero-overlay-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.hero-overlay.no-image {
+  background-color: var(--light-color);
+}
+
+/* --- overlay content (row 2) --- */
+.hero-overlay .hero-overlay-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--hero-overlay-pad-t) var(--hero-overlay-pad-x) var(--hero-overlay-pad-b);
+}
+
+.hero-overlay .hero-overlay-content-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-overlay .hero-overlay-body {
+  width: 100%;
+  max-width: 727px;
+  text-align: left;
+}
+
+.hero-overlay .hero-overlay-body h1 {
+  margin: 0 0 8px;
+  font-family: var(--heading-font-family);
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 60.8px;
+  letter-spacing: -0.8px;
+  color: inherit;
+}
+
+.hero-overlay .hero-overlay-body > p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: inherit;
+}
+
+.hero-overlay .hero-overlay-body strong {
+  color: var(--hero-overlay-cta-bg);
+}
+
+/* --- play-icon CTA (built in JS) --- */
+.hero-overlay .hero-overlay-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 24px;
+  padding: 12px;
+  border: 1px solid var(--hero-overlay-cta-bg);
+  border-radius: 8px;
+  background-color: var(--hero-overlay-cta-bg);
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+.hero-overlay .hero-overlay-cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.hero-overlay .hero-overlay-cta-icon::before {
+  content: "";
+  border-style: solid;
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent #fff;
+}
+
+/* --- bottom disclaimer bar (built in JS) --- */
+.hero-overlay .hero-overlay-disclaimer {
+  position: absolute;
+  right: var(--hero-overlay-pad-x);
+  bottom: var(--hero-overlay-pad-b);
+  left: var(--hero-overlay-pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--text-color);
+}
+
+.hero-overlay .hero-overlay-disclaimer p {
+  margin: 0;
+}
+
+.hero-overlay .hero-overlay-disclaimer p:first-child {
+  flex: none;
+}
+
+.hero-overlay .hero-overlay-disclaimer picture,
+.hero-overlay .hero-overlay-disclaimer img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.hero-overlay .hero-overlay-disclaimer p:last-child {
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  line-height: 18px;
+  text-align: right;
+  color: inherit;
+}
+
+/* --- desktop --- */
+@media (width >= 900px) {
+  .hero-overlay {
+    --hero-overlay-pad-x: 56px;
+    --hero-overlay-pad-t: 49px;
+    --hero-overlay-pad-b: 48px;
+
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .hero-overlay .hero-overlay-content {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-overlay .hero-overlay-content-inner {
+    align-items: center;
+    justify-content: center;
+    height: auto;
+  }
+
+  .hero-overlay .hero-overlay-body {
+    text-align: center;
+  }
+
+  .hero-overlay .hero-overlay-body h1 {
+    margin: 14px 0 28px;
+    font-size: 80px;
+    line-height: 76px;
+    letter-spacing: -1.44px;
+  }
+
+  .hero-overlay .hero-overlay-body > p {
+    font-size: 18px;
+    line-height: 26.1px;
+  }
+
+  .hero-overlay .hero-overlay-cta {
+    margin-top: 40px;
+    padding: 16px;
+  }
+}

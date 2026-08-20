@@ -1,0 +1,211 @@
+/* Patient transformation showcase carousel — values from source computed styles */
+
+.carousel-patient {
+  --cp-card-width: 78vw;
+  --cp-card-gap: 16px;
+  --cp-img-w: 378;
+  --cp-img-h: 600;
+}
+
+.carousel-patient .carousel-patient-stage {
+  position: relative;
+}
+
+.carousel-patient .carousel-patient-viewport {
+  overflow: hidden;
+}
+
+.carousel-patient .carousel-patient-track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--cp-card-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.carousel-patient .carousel-patient-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-patient .carousel-patient-card {
+  flex: 0 0 var(--cp-card-width);
+  scroll-snap-align: start;
+  margin: 0;
+}
+
+/* Rounded photo with overlaid title + CTA */
+.carousel-patient .carousel-patient-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--cp-img-w) / var(--cp-img-h);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.carousel-patient .carousel-patient-photo picture,
+.carousel-patient .carousel-patient-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-patient .carousel-patient-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px;
+}
+
+.carousel-patient .carousel-patient-overlay h3,
+.carousel-patient .carousel-patient-overlay h4 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+  color: rgb(0 0 0);
+}
+
+.carousel-patient a.carousel-patient-cta:any-link {
+  align-self: flex-start;
+  display: inline-block;
+  margin: 0;
+  padding: 13px 12px;
+  border: 1px solid rgb(0 0 0);
+  border-radius: 8px;
+  background-color: rgb(255 255 255);
+  color: rgb(0 0 0);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.carousel-patient a.carousel-patient-cta:any-link:hover,
+.carousel-patient a.carousel-patient-cta:any-link:focus-visible {
+  background-color: rgb(0 0 0);
+  color: rgb(255 255 255);
+  text-decoration: none;
+}
+
+/* Disclaimer below the photo */
+.carousel-patient .carousel-patient-disc {
+  margin: 16px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17.4px;
+  color: rgb(0 0 0);
+}
+
+/* Navigation arrows */
+.carousel-patient .carousel-patient-arrow {
+  position: absolute;
+  top: calc(var(--cp-card-width) * var(--cp-img-h) / var(--cp-img-w) / 2);
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 60%);
+  color: rgb(0 0 0);
+  cursor: pointer;
+  z-index: 2;
+  display: none;
+}
+
+.carousel-patient .carousel-patient-arrow:hover,
+.carousel-patient .carousel-patient-arrow:focus-visible {
+  background-color: rgb(255 255 255 / 90%);
+}
+
+.carousel-patient .carousel-patient-arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.carousel-patient .carousel-patient-arrow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  border: 2px solid currentcolor;
+  border-bottom: 0;
+  border-left: 0;
+}
+
+.carousel-patient .carousel-patient-prev {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.carousel-patient .carousel-patient-prev::after {
+  transform: translate(-30%, -50%) rotate(-135deg);
+}
+
+.carousel-patient .carousel-patient-next {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.carousel-patient .carousel-patient-next::after {
+  transform: translate(-70%, -50%) rotate(45deg);
+}
+
+/* Pagination dots */
+.carousel-patient .carousel-patient-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.carousel-patient .carousel-patient-dot {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgb(0 0 0);
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.carousel-patient .carousel-patient-dot.active {
+  background-color: rgb(0 0 0);
+}
+
+@media (width >= 900px) {
+  .carousel-patient {
+    --cp-card-width: 350px;
+    --cp-card-gap: 20px;
+  }
+
+  .carousel-patient .carousel-patient-overlay {
+    padding: 31px 32px;
+  }
+
+  .carousel-patient .carousel-patient-arrow {
+    display: block;
+  }
+}
