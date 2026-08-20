@@ -1,0 +1,38 @@
+{
+  "variantName": "hero-treatment",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-08-20T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.coolsculpting.com/treatment-areas/stomach",
+    "originPage": "CoolSculpting treatment-area detail page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "eyebrow heading + title + paragraph + full-width before image + disclaimer caption",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "treatment-area detail page heroes with an eyebrow label + title + intro copy over a model photo",
+      "light, content-bottom heroes without a CTA",
+      "the 7 treatment-area template pages (stomach, love-handles, thighs, etc.)"
+    ],
+    "notSuitableFor": [
+      "dark, centered full-bleed heroes with a play-icon CTA (use hero-overlay)",
+      "text-only intros with no background image"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/treatment-areas/stomach"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-20T00:00:00.000Z"
+  }
+}

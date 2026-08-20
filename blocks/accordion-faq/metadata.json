@@ -1,0 +1,40 @@
+{
+  "variantName": "accordion-faq",
+  "baseBlock": "accordion",
+  "version": "1.0.0",
+  "created": "2026-08-20T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.coolsculpting.com/how-it-works/faq",
+    "originPage": "How It Works FAQ page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "cream",
+    "density": "compact",
+    "purpose": "faq",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "category filter buttons + per-category expandable Q&A list + expand-all toggle",
+    "buttonCount": 4,
+    "imageCount": 0,
+    "categories": ["Featured", "Treatment", "Results", "Safety"],
+    "totalItems": 25
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "interactive FAQ pages with many short question/answer pairs",
+      "Q&A grouped into filterable categories with filter buttons",
+      "content needing an expand-all / collapse-all control"
+    ],
+    "notSuitableFor": [
+      "long single-panel legal/regulatory safety copy (use accordion-isi)",
+      "static disclosure content with no filtering or interaction"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/how-it-works/faq", "/how-it-works/treatment-journey"],
+    "reuseCount": 2,
+    "lastUsed": "2026-08-20T00:00:00.000Z"
+  }
+}

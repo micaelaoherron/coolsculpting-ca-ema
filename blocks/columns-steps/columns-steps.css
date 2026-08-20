@@ -1,0 +1,132 @@
+/* columns-steps — "how it works" numbered process with anchor image
+   Source: coolsculpting.com/how-it-works/treatment-journey (.cmp-container.steps)
+   Values extracted from source computed styles. */
+
+/* Row: mobile-first single column, steps first then image at bottom */
+.columns-steps > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* image + caption cell moves below the steps on mobile */
+.columns-steps .columns-steps-asset {
+  order: 1;
+  margin-top: 24px;
+}
+
+.columns-steps .columns-steps-asset picture,
+.columns-steps .columns-steps-asset img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.columns-steps .columns-steps-asset p {
+  margin: 0;
+}
+
+.columns-steps .columns-steps-caption {
+  margin-top: 24px;
+  font-size: 10px;
+  line-height: 15px;
+  color: var(--text-color);
+}
+
+/* Each numbered step */
+.columns-steps .columns-steps-item {
+  position: relative;
+  order: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 24px 40px;
+}
+
+/* number rendered as a circle in the left gutter */
+.columns-steps .columns-steps-count {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  background-color: var(--background-color);
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 400;
+}
+
+/* vertical connector line between consecutive circles */
+.columns-steps .columns-steps-item::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 24px;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--text-color);
+  transform: translateX(-0.5px);
+}
+
+.columns-steps .columns-steps-item:last-child::after {
+  display: none;
+}
+
+.columns-steps .columns-steps-item h3 {
+  margin: 0 0 8px;
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
+.columns-steps .columns-steps-item p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-color);
+}
+
+@media (width >= 900px) {
+  /* two columns: anchor image left, numbered steps stacked right */
+  .columns-steps > div {
+    display: grid;
+    grid-template-columns: minmax(0, 44%) 1fr;
+    column-gap: 56px;
+    align-items: start;
+  }
+
+  .columns-steps .columns-steps-asset {
+    grid-column: 1;
+    grid-row: 1 / 5;
+    order: 0;
+    margin-top: 0;
+  }
+
+  .columns-steps .columns-steps-item {
+    grid-column: 2;
+    padding: 23px 20px 18px 136px;
+  }
+
+  /* large desktop circle */
+  .columns-steps .columns-steps-count {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  .columns-steps .columns-steps-item::after {
+    left: 40px;
+    top: 80px;
+  }
+
+  .columns-steps .columns-steps-item h3 {
+    margin: -5px 0 15px;
+  }
+}

@@ -1,0 +1,166 @@
+/* tabs-plan — numbered treatment-plan tabs. Values from source computed styles. */
+
+/* ---- tablist ---- */
+.tabs-plan .tabs-plan-tablist {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  margin: 0;
+  padding: 24px 0 0;
+  border-bottom: 1px solid var(--text-color);
+  overflow-x: auto;
+}
+
+.tabs-plan .tabs-plan-tab {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0 0 14px;
+  border: 0;
+  border-bottom: 4px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tabs-plan .tabs-plan-tab[aria-selected='true'] {
+  border-bottom-color: var(--text-color);
+  cursor: default;
+}
+
+/* ---- panels ---- */
+.tabs-plan .tabs-plan-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px 0 0;
+}
+
+.tabs-plan .tabs-plan-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* ---- text column ---- */
+.tabs-plan .tabs-plan-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs-plan .tabs-plan-text h3 {
+  margin: 0 0 20px;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.tabs-plan .tabs-plan-text p {
+  margin: 0;
+  font-size: var(--body-font-size-m);
+  line-height: 1.45;
+}
+
+.tabs-plan .tabs-plan-cta {
+  margin: 28px 0 0;
+}
+
+.tabs-plan .tabs-plan-note {
+  margin: 24px 0 0;
+  font-size: var(--body-font-size-xs);
+  line-height: 1.5;
+}
+
+/* ---- CTA button (filled blue, from source) ---- */
+main .tabs-plan .tabs-plan-cta a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 121px;
+  margin: 0;
+  padding: 13px 12px;
+  border: 1px solid #1563ff;
+  border-radius: 8px;
+  background-color: #1563ff;
+  color: #fff;
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+main .tabs-plan .tabs-plan-cta a.button:any-link:hover,
+main .tabs-plan .tabs-plan-cta a.button:any-link:focus-visible {
+  border-color: #0b47c4;
+  background-color: #0b47c4;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ---- asset column (rounded square image) ---- */
+.tabs-plan .tabs-plan-asset {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tabs-plan .tabs-plan-asset p {
+  margin: 0;
+  line-height: 0;
+}
+
+.tabs-plan .tabs-plan-asset picture,
+.tabs-plan .tabs-plan-asset img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- desktop ---- */
+@media (width >= 900px) {
+  .tabs-plan .tabs-plan-tablist {
+    gap: 20px;
+    padding-top: 50px;
+  }
+
+  .tabs-plan .tabs-plan-tab {
+    padding: 0 0 21px;
+    letter-spacing: -0.48px;
+  }
+
+  .tabs-plan .tabs-plan-panel {
+    flex-direction: row;
+    gap: 0;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .tabs-plan .tabs-plan-text {
+    flex: 1 1 0;
+    justify-content: center;
+    padding: 50px 56px 56px 0;
+  }
+
+  .tabs-plan .tabs-plan-text h3 {
+    margin-bottom: 24px;
+    font-size: 48px;
+    line-height: 1.05;
+    letter-spacing: -0.96px;
+  }
+
+  .tabs-plan .tabs-plan-asset {
+    flex: 0 0 auto;
+    align-self: center;
+    width: 608px;
+    max-width: 45%;
+    aspect-ratio: 1 / 1;
+    margin: 56px 0;
+  }
+}

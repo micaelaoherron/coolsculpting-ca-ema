@@ -30,8 +30,11 @@
     ]
   },
   "usage": {
-    "pagesUsing": ["/index"],
-    "reuseCount": 1,
+    "pagesUsing": [
+      "/index",
+      "/how-it-works/treatment-journey"
+    ],
+    "reuseCount": 2,
     "lastUsed": "2026-08-20T00:00:00.000Z"
   }
 }

@@ -1,0 +1,235 @@
+/*
+ * accordion-faq variant: filterable FAQ accordion
+ * Values extracted from https://www.coolsculpting.com/how-it-works/faq
+ * computed styles. Blue accent (#1563ff) is source-specific (not a brand token).
+ */
+
+.accordion-faq {
+  --accordion-faq-accent: #1563ff;
+
+  color: var(--text-color);
+}
+
+/* The block sits in a cream section (section-metadata style: cream). styles.css
+   defines pink/blue/black/light section variants but not "cream", so supply the
+   full-bleed cream background + vertical rhythm here. Cream sampled from source
+   (rgb(252, 244, 232)). Scoped to sections that actually contain this block. */
+main .section.cream:has(.accordion-faq) {
+  background-color: #fcf4e8;
+  margin: 0;
+  padding: 56px 0;
+}
+
+/* ---- Controls: filters + expand-all ---- */
+.accordion-faq-aside {
+  margin-bottom: 24px;
+}
+
+.accordion-faq-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.accordion-faq-filter {
+  padding: 13px 12px;
+  border: 1px solid var(--text-color);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.accordion-faq-filter:hover {
+  background-color: rgb(0 0 0 / 8%);
+}
+
+.accordion-faq-filter-active,
+.accordion-faq-filter-active:hover {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+/* ---- Expand all / collapse all toggle ---- */
+.accordion-faq-toggle-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.accordion-faq-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.accordion-faq-toggle:hover {
+  text-decoration: underline;
+}
+
+.accordion-faq-toggle-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+
+.accordion-faq-toggle-icon::before,
+.accordion-faq-toggle-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: var(--text-color);
+  transform: translate(-50%, -50%);
+}
+
+.accordion-faq-toggle-icon::before {
+  width: 14px;
+  height: 2px;
+}
+
+.accordion-faq-toggle-icon::after {
+  width: 2px;
+  height: 14px;
+  transition: transform 0.2s;
+}
+
+.accordion-faq-toggle-open .accordion-faq-toggle-icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
+}
+
+/* ---- Panels ---- */
+.accordion-faq-panel {
+  display: none;
+}
+
+.accordion-faq-panel-active {
+  display: block;
+}
+
+/* ---- Accordion items ---- */
+.accordion-faq-item {
+  border-top: 1px solid var(--text-color);
+}
+
+.accordion-faq-summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.accordion-faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-faq-question {
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
+/* ---- Circular +/- icon ---- */
+.accordion-faq-icon {
+  position: relative;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--accordion-faq-accent);
+  border-radius: 50%;
+}
+
+.accordion-faq-icon::before,
+.accordion-faq-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: var(--accordion-faq-accent);
+  transform: translate(-50%, -50%);
+}
+
+.accordion-faq-icon::before {
+  width: 16px;
+  height: 2px;
+}
+
+.accordion-faq-icon::after {
+  width: 2px;
+  height: 16px;
+  transition: transform 0.2s;
+}
+
+.accordion-faq-item[open] .accordion-faq-icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
+}
+
+/* ---- Answer ---- */
+.accordion-faq-answer {
+  padding: 0 0 31px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.accordion-faq-answer > *:first-child {
+  margin-top: 0;
+}
+
+.accordion-faq-answer p {
+  margin: 0 0 1em;
+}
+
+.accordion-faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+.accordion-faq-answer a {
+  text-decoration: underline;
+}
+
+/* ---- Desktop: two-column layout (aside left, list right) ---- */
+@media (width >= 900px) {
+  .accordion-faq-filtered {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 64px;
+    align-items: start;
+  }
+
+  .accordion-faq-aside {
+    margin-bottom: 0;
+    padding-top: 4px;
+  }
+
+  .accordion-faq-question {
+    font-size: 32px;
+    letter-spacing: -0.64px;
+  }
+
+  .accordion-faq-summary {
+    padding: 33px 0;
+  }
+}
