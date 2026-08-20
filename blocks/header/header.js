@@ -113,9 +113,12 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment
+  // load nav as fragment — prefer the migrated fragment under /content, fall
+  // back to page metadata (DA/EDS production) then the EDS default.
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  const navPath = navMeta
+    ? new URL(navMeta, window.location).pathname
+    : '/content/nav';
   const fragment = await loadFragment(navPath);
 
   // decorate nav DOM
@@ -124,7 +127,12 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['brand', 'sections', 'tools'];
+  // Support an optional leading utility bar. When the fragment has 4 sections,
+  // the first is the utility bar; otherwise fall back to brand/sections/tools.
+  const hasUtility = nav.children.length >= 4;
+  const classes = hasUtility
+    ? ['utility', 'brand', 'sections', 'tools']
+    : ['brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
