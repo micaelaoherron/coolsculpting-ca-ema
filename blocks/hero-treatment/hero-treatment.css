@@ -1,0 +1,152 @@
+/*
+ * hero-treatment
+ * Treatment-area hero. Values extracted from source computed styles
+ * (.emu-teaser.treatment-area__teaser on coolsculpting.com/treatment-areas/*).
+ * Mobile: rounded image card on top, black text stacked below.
+ * Desktop (>=900px): full-bleed photo with content overlaid — eyebrow + title
+ * pinned top-left, description + disclaimer pinned bottom-left (content-bottom).
+ */
+
+/* full-bleed: cancel the section max-width / padding wrapper */
+.hero-treatment-container .hero-treatment-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+.hero-treatment {
+  position: relative;
+  color: rgb(0 0 0);
+}
+
+/* --- image --- */
+.hero-treatment .hero-treatment-image {
+  margin: 0;
+}
+
+.hero-treatment .hero-treatment-image picture,
+.hero-treatment .hero-treatment-image img {
+  display: block;
+  width: 100%;
+}
+
+.hero-treatment .hero-treatment-image img {
+  aspect-ratio: 16 / 10;      /* source hero image is 2880x1800 (1.6) */
+  object-fit: cover;
+  border-radius: 8px;         /* mobile-img-rounded */
+}
+
+/* --- content (mobile: stacked below image) --- */
+.hero-treatment .hero-treatment-content {
+  margin: 0;
+  padding: 20px 0 0;
+}
+
+.hero-treatment .hero-treatment-content > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-treatment .hero-treatment-eyebrow {
+  margin: 0 0 12px;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.98px;
+  color: rgb(0 0 0);
+}
+
+.hero-treatment .hero-treatment-title {
+  margin: 0 0 16px;
+  font-family: var(--heading-font-family);
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: rgb(0 0 0);
+}
+
+.hero-treatment .hero-treatment-description {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: rgb(0 0 0);
+}
+
+.hero-treatment .hero-treatment-disclaimer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.hero-treatment .hero-treatment-disclaimer p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgb(0 0 0);
+}
+
+.hero-treatment .hero-treatment-disclaimer p:has(img),
+.hero-treatment .hero-treatment-disclaimer picture {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.hero-treatment .hero-treatment-disclaimer img {
+  width: 24px;
+  height: 24px;
+}
+
+/* text-only fallback (no background image authored) */
+.hero-treatment.no-image .hero-treatment-content {
+  padding-top: 0;
+}
+
+/* --- desktop: overlay content on the full-bleed photo --- */
+@media (width >= 900px) {
+  .hero-treatment .hero-treatment-image img {
+    aspect-ratio: 16 / 10;
+    border-radius: 0;
+  }
+
+  .hero-treatment .hero-treatment-content {
+    position: absolute;
+    inset: 0;
+    padding: 49px 56px 51px;
+  }
+
+  /* the single authored cell becomes the overlay flex column */
+  .hero-treatment .hero-treatment-content > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0;
+    height: 100%;
+    max-width: 1520px;
+  }
+
+  .hero-treatment .hero-treatment-eyebrow {
+    margin: 5px 0 25px;
+  }
+
+  .hero-treatment .hero-treatment-title {
+    margin: 0 0 28px;
+    font-size: 72px;
+    line-height: 0.95;
+    letter-spacing: -1.44px;
+  }
+
+  .hero-treatment .hero-treatment-description {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .hero-treatment .hero-treatment-disclaimer {
+    margin-top: 16px;
+  }
+}

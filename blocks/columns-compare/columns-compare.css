@@ -1,0 +1,104 @@
+/*
+ * columns-compare
+ * Two-column comparison ("How is CoolSculpting different from liposuction?"):
+ * a text column (heading + body paragraph + small disclaimer pinned to the
+ * bottom) beside a square, rounded image column, on a full-bleed cream band.
+ * Values extracted from source computed styles (coolsculpting.com,
+ * .img-txt-grid.treatment-area__img-txt-grid, desktop 1440).
+ */
+
+/* Full-bleed cream band: break the block out of the 1200px section wrapper. */
+.columns-compare-wrapper {
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+.columns-compare {
+  background-color: #fcf4e8;
+  color: var(--text-color);
+}
+
+/* Row: centered content strip, stacked on mobile. */
+.columns-compare > div {
+  display: flex;
+  flex-direction: column;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Image cell sits on top when stacked (set by decorate()). */
+.columns-compare > div > div {
+  order: 1;
+}
+
+.columns-compare > div > .columns-compare-img-col {
+  order: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.columns-compare > div > .columns-compare-img-col img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Text cell */
+.columns-compare > div > div:not(.columns-compare-img-col) {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px 40px;
+}
+
+.columns-compare h2 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.05;
+  letter-spacing: -0.98px;
+  color: var(--text-color);
+}
+
+.columns-compare p {
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--text-color);
+}
+
+/* Disclaimer = last paragraph, small type pinned to the bottom of the column. */
+.columns-compare > div > div:not(.columns-compare-img-col) p:last-child {
+  margin-top: 24px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (width >= 900px) {
+  .columns-compare > div {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 56px;
+    padding-right: 56px;
+  }
+
+  .columns-compare > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  .columns-compare > div > div:not(.columns-compare-img-col) {
+    padding: 49px 56px 57px;
+  }
+
+  .columns-compare h2 {
+    font-size: 48px;
+    line-height: 1.05;
+  }
+
+  /* push the disclaimer to the bottom of the text column */
+  .columns-compare > div > div:not(.columns-compare-img-col) p:last-child {
+    margin-top: auto;
+  }
+}

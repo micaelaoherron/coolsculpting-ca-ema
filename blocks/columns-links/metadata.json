@@ -30,8 +30,12 @@
     ]
   },
   "usage": {
-    "pagesUsing": ["/index"],
-    "reuseCount": 1,
-    "lastUsed": "2026-08-20T00:00:00.000Z"
+    "pagesUsing": [
+      "/index",
+      "/how-it-works/faq",
+      "/treatment-areas/stomach"
+    ],
+    "reuseCount": 3,
+    "lastUsed": "2026-08-20T18:43:54.712Z"
   }
 }

@@ -1,0 +1,154 @@
+/* tabs-bodyarea — body-area silhouette tabs.
+   Values extracted from source computed styles:
+   .tabbed-teaser.tj__tabbed-teaser @ coolsculpting.com/how-it-works/treatment-journey
+   Brand blue tab = rgb(21, 99, 255); teaser bg = rgb(252, 244, 232). */
+
+.tabs-bodyarea {
+  --tabs-bodyarea-blue: rgb(21 99 255);
+  --tabs-bodyarea-bg: rgb(252 244 232);
+
+  position: relative;
+  background-color: var(--tabs-bodyarea-bg);
+}
+
+/* full-bleed: escape the section's 1200px content column */
+.tabs-bodyarea-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+/* ---- tablist (segmented pill) ---- */
+.tabs-bodyarea .tabs-bodyarea-list {
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: 4px solid #fff;
+  border-radius: 8px;
+  background-color: #fff;
+  list-style: none;
+  overflow: hidden;
+}
+
+.tabs-bodyarea .tabs-bodyarea-list button {
+  margin: 0;
+  border: 0;
+  border-radius: 4px;
+  padding: 10px 14px;
+  background-color: transparent;
+  color: var(--tabs-bodyarea-blue);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tabs-bodyarea .tabs-bodyarea-list button[aria-selected='true'] {
+  background-color: var(--tabs-bodyarea-blue);
+  color: #fff;
+  cursor: default;
+}
+
+/* ---- panels ---- */
+.tabs-bodyarea .tabs-bodyarea-panel[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs-bodyarea .tabs-bodyarea-panel {
+  position: relative;
+}
+
+/* image layer */
+.tabs-bodyarea .tabs-bodyarea-image {
+  margin: 0;
+}
+
+.tabs-bodyarea .tabs-bodyarea-image picture {
+  display: block;
+}
+
+.tabs-bodyarea .tabs-bodyarea-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* content layer */
+.tabs-bodyarea .tabs-bodyarea-content {
+  padding: 24px 16px 32px;
+}
+
+.tabs-bodyarea .tabs-bodyarea-content h2 {
+  margin: 0 0 16px;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
+.tabs-bodyarea .tabs-bodyarea-content p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--text-color);
+}
+
+/* ---- desktop: overlay text on the silhouette image ---- */
+@media (width >= 900px) {
+  .tabs-bodyarea .tabs-bodyarea-list {
+    top: 56px;
+    left: 56px;
+  }
+
+  .tabs-bodyarea .tabs-bodyarea-list button {
+    padding: 14px 12px;
+    font-size: 24px;
+    letter-spacing: -0.48px;
+  }
+
+  .tabs-bodyarea .tabs-bodyarea-panel[aria-hidden='false'] {
+    display: grid;
+  }
+
+  /* stack image and content in the same grid cell */
+  .tabs-bodyarea .tabs-bodyarea-image,
+  .tabs-bodyarea .tabs-bodyarea-content {
+    grid-area: 1 / 1;
+  }
+
+  .tabs-bodyarea .tabs-bodyarea-image img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
+
+  /* text column overlaid top-left over cream */
+  .tabs-bodyarea .tabs-bodyarea-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 487px;
+    padding: 170px 56px 32px;
+  }
+
+  .tabs-bodyarea .tabs-bodyarea-content h2 {
+    margin: 0 0 32px;
+    line-height: 0.95;
+    letter-spacing: -1.28px;
+  }
+}

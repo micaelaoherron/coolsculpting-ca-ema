@@ -1,0 +1,141 @@
+/* Block: columns-result
+ * Before/after result gallery. Values extracted from source computed styles
+ * (coolsculpting.com treatment-area BA card).
+ * Mobile-first: text stacked above a vertical before/after image stack.
+ * Desktop (>=900px): image stack to the left, text column to the right.
+ */
+
+.columns-result > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---- Text column ---- */
+.columns-result-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-result-pretitle {
+  margin: 0 0 16px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 1.12px;
+  color: var(--text-color);
+}
+
+.columns-result-text h2 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+
+.columns-result-text h3 {
+  margin: 12px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+.columns-result-text p {
+  font-size: var(--body-font-size-s);
+  line-height: 1.5;
+}
+
+.columns-result-cta {
+  margin: 20px 0 0;
+}
+
+.columns-result-disclaimer {
+  margin: 16px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ---- Image column: vertical before/after stack ---- */
+.columns-result-img-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.columns-result-figure {
+  position: relative;
+  margin: 0;
+  line-height: 0;
+}
+
+.columns-result-figure picture,
+.columns-result img {
+  display: block;
+  width: 100%;
+}
+
+/* Overlaid BEFORE / AFTER pill label */
+.columns-result-label {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 56px;
+  background-color: #1563ff;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+@media (width >= 900px) {
+  /* Image stack on the left, text on the right */
+  .columns-result > div {
+    flex-direction: row-reverse;
+    align-items: stretch;
+    gap: 48px;
+  }
+
+  .columns-result-img-col {
+    flex: 0 0 44%;
+    border-radius: 12px;
+  }
+
+  .columns-result-text {
+    flex: 1;
+    padding: 12px 0 0;
+  }
+
+  /* Push the trailing disclaimer to the bottom of the text column */
+  .columns-result-disclaimer {
+    margin-top: auto;
+  }
+
+  .columns-result-pretitle {
+    margin-bottom: 23px;
+  }
+
+  .columns-result-text h2 {
+    font-size: 72px;
+    line-height: 0.95;
+    letter-spacing: -1.5px;
+  }
+
+  .columns-result-text h3 {
+    font-size: 14px;
+  }
+
+  .columns-result-label {
+    top: 24px;
+    right: 24px;
+    padding: 5px 16px 7px;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "variantName": "columns-compare",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-20T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.coolsculpting.com/treatment-areas/stomach",
+    "originPage": "CoolSculpting treatment-area detail page",
+    "blockPosition": "top-middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "cream",
+    "density": "spacious",
+    "purpose": "comparison",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "text column (heading + paragraph + disclaimer) | single image column, on a cream card background",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "two-column explanatory/comparison sections pairing text with a supporting image",
+      "'how is X different from Y' informational panels on a tinted card background",
+      "treatment-area template comparison sections"
+    ],
+    "notSuitableFor": [
+      "text/link-list teaser layouts with overlay CTA (use columns-links)",
+      "dark alternating image/content promo rows (use columns-promo)",
+      "before/after result galleries with BEFORE/AFTER labels (use columns-result)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/treatment-areas/stomach"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-20T00:00:00.000Z"
+  }
+}

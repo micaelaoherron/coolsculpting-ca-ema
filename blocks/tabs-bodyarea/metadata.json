@@ -1,0 +1,37 @@
+{
+  "variantName": "tabs-bodyarea",
+  "baseBlock": "tabs",
+  "version": "1.0.0",
+  "created": "2026-08-20T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.coolsculpting.com/how-it-works/treatment-journey",
+    "originPage": "How It Works - Treatment Journey",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "bodyarea-tabs",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "2 tabs (Front Side / Back Side); each panel = body silhouette diagram image + heading + paragraph",
+    "buttonCount": 0,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "silhouette / body-area selector tabs showing a diagram per side",
+      "two-way image + text tab switchers on a light background"
+    ],
+    "notSuitableFor": [
+      "numbered process/step tabs with CTAs (use tabs-plan)",
+      "expandable Q&A (use accordion-faq)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/how-it-works/treatment-journey"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-20T00:00:00.000Z"
+  }
+}

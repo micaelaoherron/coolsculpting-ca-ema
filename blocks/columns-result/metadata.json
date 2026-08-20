@@ -1,0 +1,39 @@
+{
+  "variantName": "columns-result",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-20T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.coolsculpting.com/treatment-areas/stomach",
+    "originPage": "CoolSculpting treatment-area detail page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "before-after",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "text column (name/age heading + description + CTA + disclaimer) | before/after image pair with BEFORE/AFTER labels; column order reversible",
+    "buttonCount": 1,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "static before/after result galleries with BEFORE/AFTER labeled image pairs",
+      "patient result sections paired with descriptive text and a results CTA",
+      "repeating result blocks on treatment-area template pages"
+    ],
+    "notSuitableFor": [
+      "rotating/sliding before-after carousels (use carousel-patient)",
+      "text/link-list teaser layouts (use columns-links)",
+      "informational comparison panels without labeled image pairs (use columns-compare)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/treatment-areas/stomach"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-20T00:00:00.000Z"
+  }
+}
