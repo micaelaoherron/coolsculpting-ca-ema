@@ -113,13 +113,16 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment — prefer the migrated fragment under /content, fall
-  // back to page metadata (DA/EDS production) then the EDS default.
+  // load nav as fragment. Prefer explicit page metadata; otherwise try the
+  // published root fragment (/nav) and fall back to /content/nav (local dev).
   const navMeta = getMetadata('nav');
-  const navPath = navMeta
-    ? new URL(navMeta, window.location).pathname
-    : '/content/nav';
-  const fragment = await loadFragment(navPath);
+  let navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  let fragment = await loadFragment(navPath);
+  if (!fragment && !navMeta) {
+    navPath = '/content/nav';
+    fragment = await loadFragment(navPath);
+  }
+  if (!fragment) return;
 
   // decorate nav DOM
   block.textContent = '';

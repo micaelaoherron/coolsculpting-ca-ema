@@ -6,13 +6,16 @@ import { loadFragment } from '../fragment/fragment.js';
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  // load footer as fragment — prefer the migrated fragment under /content,
-  // fall back to page metadata (DA/EDS production) then the EDS default.
+  // load footer as fragment. Prefer explicit page metadata; otherwise try the
+  // published root fragment (/footer) and fall back to /content/footer (local dev).
   const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta
-    ? new URL(footerMeta, window.location).pathname
-    : '/content/footer';
-  const fragment = await loadFragment(footerPath);
+  let footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
+  let fragment = await loadFragment(footerPath);
+  if (!fragment && !footerMeta) {
+    footerPath = '/content/footer';
+    fragment = await loadFragment(footerPath);
+  }
+  if (!fragment) return;
 
   // decorate footer DOM
   block.textContent = '';
